@@ -6,6 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -19,6 +21,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -62,6 +65,10 @@ fun MessageCard(message: Message) {
 
         var isExpanded by remember{ mutableStateOf(false)}
 
+        val surfaceColor:Color by animateColorAsState(
+            if (isExpanded) MaterialTheme.colors.primary else MaterialTheme.colors.surface,
+        )
+
         Column(modifier = Modifier.clickable { isExpanded = !isExpanded }) {
             Text(text = message.author,
                 color = MaterialTheme.colors.secondaryVariant,
@@ -71,7 +78,9 @@ fun MessageCard(message: Message) {
 
             Surface(
                 shape = MaterialTheme.shapes.medium,
-                elevation = 1.dp
+                elevation = 1.dp,
+                color = surfaceColor,
+                modifier = Modifier.animateContentSize().padding(1.dp)
             ){
                 Text(
                     text = message.body,
