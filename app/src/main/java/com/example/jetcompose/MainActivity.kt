@@ -88,6 +88,32 @@ fun MessageCard(message: Message) {
 
 
 
+//@Preview(
+//    uiMode = Configuration.UI_MODE_NIGHT_NO,
+//    showBackground = true,
+//    name = "Light Mode"
+//)
+//@Preview(
+//    uiMode = Configuration.UI_MODE_NIGHT_YES,
+//    showBackground = true,
+//    name = "Dark Mode"
+//)
+//@Composable
+//fun DefaultPreview() {
+//    JetComposeTheme {
+//        MessageCard(message = Message("Tahiru","Hey, take a look at Jetpack Compose, it's great!"))
+//    }
+//}
+//
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages) { message ->
+            MessageCard(message)
+        }
+    }
+}
+
 @Preview(
     uiMode = Configuration.UI_MODE_NIGHT_NO,
     showBackground = true,
@@ -98,23 +124,6 @@ fun MessageCard(message: Message) {
     showBackground = true,
     name = "Dark Mode"
 )
-@Composable
-fun DefaultPreview() {
-    JetComposeTheme {
-        MessageCard(message = Message("Tahiru","Hey, take a look at Jetpack Compose, it's great!"))
-    }
-}
-
-@Composable
-fun Conversation(messages: List<Message>) {
-    LazyColumn {
-        items(messages) { message ->
-            MessageCard(message)
-        }
-    }
-}
-
-@Preview
 @Composable
 fun PreviewConversation() {
     JetComposeTheme{
