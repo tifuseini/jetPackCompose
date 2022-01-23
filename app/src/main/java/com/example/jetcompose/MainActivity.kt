@@ -1,5 +1,6 @@
 package com.example.jetcompose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.SurfaceControl
 import androidx.activity.ComponentActivity
@@ -77,7 +78,12 @@ fun MessageCard(message: Message) {
 
 
 
-@Preview
+@Preview(name = "Light Mode")
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    name = "Dark Mode"
+)
 @Composable
 fun DefaultPreview() {
     JetComposeTheme {
