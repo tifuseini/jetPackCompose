@@ -1,6 +1,7 @@
 package com.example.jetcompose
 
 import android.os.Bundle
+import android.view.SurfaceControl
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -61,15 +62,20 @@ fun MessageCard(message: Message) {
             )
             Spacer(modifier = Modifier.height(8.dp))
 
-            Text(text = message.body,
-                style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(all = 4.dp)
-            )
+            Surface(shape = MaterialTheme.shapes.medium, elevation = 1.dp){
+                Text(
+                    text = message.body,
+                    modifier = Modifier.padding(all = 4.dp),
+                    style = MaterialTheme.typography.body2
+                )
+            }
         }
 
     }
 
 }
+
+
 
 @Preview
 @Composable
