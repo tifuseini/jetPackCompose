@@ -40,7 +40,7 @@ data class Message(val author:String,val body:String)
 fun MessageCard(message: Message) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
         Image(
-            painter = painterResource(R.drawable.profile_picture),
+            painter = painterResource(R.drawable.image_created_with_a_mobile_phone),
             contentDescription = "Contact profile picture",
             modifier = Modifier
                 // Set image size to 40 dp
