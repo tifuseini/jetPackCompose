@@ -66,10 +66,10 @@ fun MessageCard(message: Message) {
                 modifier = Modifier.padding(all = 4.dp)
             )
         }
-    }
 
     }
 
+}
 
 @Preview
 @Composable
